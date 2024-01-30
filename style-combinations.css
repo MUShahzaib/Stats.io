@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+  }
+  
+  .title {
+    margin-top: 30px;
+    font-size: 24px;
+  }
+  
+  .results-container {
+    height: 400px;
+    /* max-height: 400px; */
+    overflow-y: scroll;
+    background-color: #e0e0e0;
+  }
+  
+  #combinations-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #combinations-table th {
+    padding: 8px;
+    font-weight: bold;
+    background-color: #ddd;
+  }
+  
+  #combinations-table td {
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  #combination-count {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .panel,.explanation-div{
+    border: 1px solid rgb(255, 166, 0);
+    padding: 20px;
+    margin: 0 auto;
+    width: 70%;
+    background-color: #f5f5f5;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ad-banner{
+    /* min-height: 200px; */
+    border: 1px solid rgb(4, 255, 0);
+    padding: 20px;
+    margin: 0 auto;
+    width: 70%;
+    background-color: #ffce99;
+    position: relative;
+    z-index: 1;
+  }

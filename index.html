@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Combinations(Permutations) Generator</title>
+    <link rel="stylesheet" href="style-combinations.css">
+</head>
+
+<body>
+    <h1 class="title">Combinations(Permutations) Generator</h1>
+    <div class="panel">
+        <label for="words">Enter your word(s):</label>
+        <input type="text" id="words" placeholder="Enter words here">
+        <button id="generate">Generate</button>
+        <label for="display-option">Display in table:</label>
+        <input type="checkbox" id="display-option" checked>
+        <label for="combinations-table" id="combination-count"></label></br>
+        <div class="button-container"> <button id="copy-combinations">Copy</button>
+            <button id="clear-combinations">Clear</button>
+        </div></br>
+        <div class="results-container">
+            <table id="combinations-table">
+                <thead>
+                    <tr>
+                        <th>Starting Letter</th>
+                        <th>Combinations(Permutations)</th>
+                    </tr>
+                </thead>
+                <tbody id="combinations-tbody">
+                </tbody>
+            </table>
+            <div id="combinations-div"></div>
+        </div>
+        <br>
+        <label for="filename">Filename:</label>
+        <input type="text" id="filename" value="permutations.txt">
+        <button id="save-to-text">Save to Text File</button>
+    </div>
+</br>
+<div class="ad-banner"> 
+    <h1> Place your ads here ! </h1>
+       This area is available for adding advertisements. Contact mshahzaib6699@gmail.com for more information about placing your ads here. 
+</div>
+</br>
+    <div id="explanation-div" class="explanation-div">
+        <h2><u>How the Combination(Permutations) Generator Works</u> </h2>
+
+        <p>A permutaion is a selection of items from a collection, where the order of the items does matter. For
+            example, selecting 2 items from a set of {A, B, C} could result in the combinations {A, B}, {C, A}, or {B,
+            C},{C,B}.</p>
+
+        <h3><u>Permutation Formula</u></h3>
+
+        <p>The number of possible permutations of <i>k</i> items from a set of <i>n</i> items is given by the formula:
+        </p>
+        <p><strong>n! / (n-k)!</strong></p>
+        <p>where "!" denotes the factorial (e.g., 5! = 5 x 4 x 3 x 2 x 1).</p>
+
+        <h3><u> Algorithm Implementation</u> </h3>
+
+        <p>Our site uses an efficient algorithm to generate permutations based on this formula. It recursively explores
+            possible permutations, ensuring that each unique permutations is generated only once.</p>
+
+        <h3><u> Site Functionality</u> </h3>
+
+        <h4>1. Input</h4>
+        <p>Enter the total number of items (n) and the number of items to choose (k) in the input fields.</p>
+
+        <h4>2. Output</h4>
+        <p>The generated permutations are displayed in a table view for easy reading and analysis as well as in simple text to easily copy.</p>
+
+        <h4>3. Copy</h4>
+        <p>Click the "Copy" button to copy all generated permutations to your clipboard for pasting into other
+            applications.</p>
+
+        <h4>4. Clear</h4>
+        <p>Click the "Clear" button to erase all generated permutations and start a new calculation.</p>
+
+        <h4>5. Save</h4>
+        <p>Click the "Save" button to save the generated permutations to a text file for future reference.</p>
+    </div>
+
+    <script src="script-combinations.js"></script>
+    <script src="script-combinations-actions.js"></script>
+</body>
+
+</html>
