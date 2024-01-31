@@ -9,17 +9,32 @@
 <body>
     <h1 class="title">Permutations Generator</h1>
     <div class="panel">
-        <label for="words">Enter your word(s):</label>
-        <input type="text" id="words" placeholder="Enter words here">
-        <label for="k-value">Enter k:</label>
-        <input type="number" id="k-value">
-        <button id="generate">Generate</button>
+        <label for="words" >Enter your word(s):</label>
+        <input class="input-ui" type="text" id="words" placeholder="Enter words here">
+        <label for="k-value" >Enter k-value:</label>
+        <input class="input-ui" type="number" id="k-value" min="1">
+        <button class="input-ui" id="generate">Generate</button>
         <label for="display-option">Display in table:</label>
-        <input type="checkbox" id="display-option" checked></br>
-        <label for="permutations-table" id="permutation-count"></label></br>
+        <input type="checkbox" id="display-option" checked></br></br>
+        <label for="permutations-table" id="permutation-count"></label></br></br>
         <div class="button-container"> <button id="copy-permutations">Copy</button>
             <button id="clear-permutations">Clear</button>
         </div></br>
+        <div id="sort-panel">
+        <label for="sort-by">Sort By:</label>
+        <select id="sort-by" class="input-ui">
+            <option value="none">None</option>
+            <option value="meaningFul">MeaningFull (Full Word)</option>
+            <option value="firstLetterAsc">First Letter (Ascending)</option>
+            <option value="firstLetterDesc">First Letter (Descending)</option>
+            <option value="wordLengthAsc">Word Length (Shortest to Longest)</option>
+            <option value="wordLengthDesc">Word Length (Longest to Shortest)</option>
+            <option value="alphabeticalFull">Alphabetical (Full Word)</option>
+          </select>
+        </div>
+        </br> </br>
+        <label for="font-size">Font Size:</label>
+        <input type="range" id="font-size" min="12" max="32" value="16">        
         <div class="results-container">
             <table id="permutations-table">
                 <thead>

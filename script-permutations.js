@@ -4,11 +4,11 @@ const permutationsTable = document.getElementById("permutations-table");
 const permutationsDiv = document.getElementById("permutations-div");
 const permutationCountLabel = document.getElementById("permutation-count");
 const displayOptionCheckbox = document.getElementById("display-option");
+const kInput= document.getElementById("k-value");
+var permutations;
 
 generateButton.addEventListener("click", () => {
   generateNewPermutations();
-  const permutationCount = permutations.length;
-  permutationCountLabel.textContent = `Number of permutations: ${permutationCount}`;
 });
 
 // Event listener for the checkbox
@@ -20,12 +20,32 @@ displayOptionCheckbox.addEventListener("change", () => {
 });
 
 function generateNewPermutations(){
-  // Get the words and generate permutations again
   const words = wordsInput.value.trim().split(" ");
+  if(words==""){
+    alert("Invalid or Empty word(s) !");
+    return;
+  }
   const letters = words.join("").split("");
-  const kValue = parseInt(document.getElementById("k-value").value);
-  const permutations = generatePermutations(letters, kValue);
-  
+  var kValue = parseInt(kInput.value);
+
+  if (kInput.value.trim() === "") {
+    kValue = letters.length;
+    alert(`No k value entered. Using k = ${kValue} (number of words).`);
+    kInput.value = kValue; // Set input value for clarity
+  } else {
+    kValue = parseInt(kInput.value);
+    if (isNaN(kValue) || kValue < 1 || kValue>letters.length) {
+      alert("Invalid k value. Please enter a positive integer smaller than total words.");
+      return; // Prevent further code execution if k is invalid
+    }
+  }
+  permutations = generatePermutations(letters, kValue);
+  const permutationCount = permutations.length;
+  permutationCountLabel.textContent = `Number of permutations: ${permutationCount}`;
+  displayPermutations();
+}
+
+function displayPermutations(){
   if (displayOptionCheckbox.checked) {
     displayPermutationsInTable(permutations);
   } else {
@@ -52,34 +72,29 @@ function generatePermutations(letters, k) {
 function displayPermutationsInTable(permutations) {
     // Clear previous data
     permutationsTable.tBodies[0].innerHTML = "";
-  
     // Group permutations by first letter
     const groupedpermutations = groupByFirstLetter(permutations);
-  
     // Loop through each letter and its permutations
     for (const letter in groupedpermutations) {
       // Create a new row for the letter
       const row = permutationsTable.tBodies[0].insertRow();
       const letterCell = row.insertCell();
       const permutationsCell = row.insertCell();
-  
       // Set the letter as the table header
       letterCell.textContent = letter;
-  
       // Create a container element for permutations
       const permutationsContainer = document.createElement("div");
-  
       // Add each permutation to the container with a line break
       for (const permutation of groupedpermutations[letter]) {
         permutationsContainer.textContent += permutation + "\n";
       }
-  
       // Set the permutations container as the cell content
       permutationsCell.appendChild(permutationsContainer);
     }
   }
 
 function displayPermutationsInDiv(permutations) {
+  permutationsDiv.innerHTML = "";
   permutationsDiv.innerHTML = permutations.join("<br>");
 }
 

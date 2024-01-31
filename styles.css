@@ -1,19 +1,24 @@
 body {
     text-align: center;
     font-family: sans-serif;
-    background-color:azure
+    /* background-color:azure */
+    background-color: #f5f5f5;
   }
   
   .title {
     margin-top: 30px;
     font-size: 24px;
   }
+
+  .input-ui{
+    min-width: 150px;
+     height: 40px;
+  }
   
   .results-container {
     height: 400px;
-    /* max-height: 400px; */
     overflow-y: scroll;
-    background-color: #e0e0e0;
+    background-color:aliceblue;
   }
   
   #permutations-table {
@@ -21,6 +26,10 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
+}
+
+#permutations-table {
+  font-size: var(--font-size, 16px); /* Use a CSS variable */
 }
 
 #permutations-table th {
@@ -43,7 +52,11 @@ body {
 
   
   .panel,.explanation-div{
-    border: 1px solid rgb(255, 166, 0);
+    border: 1px;
+    border-color: #333;
+    border-radius: 8px;
+    border-style:solid;
+    /* border: 1px solid rgb(255, 166, 0); */
     padding: 20px;
     margin: 0 auto;
     width: 70%;
