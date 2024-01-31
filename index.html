@@ -2,34 +2,36 @@
 <html>
 
 <head>
-    <title>Combinations(Permutations) Generator</title>
-    <link rel="stylesheet" href="style-combinations.css">
+    <title>Permutations Generator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1 class="title">Combinations(Permutations) Generator</h1>
+    <h1 class="title">Permutations Generator</h1>
     <div class="panel">
         <label for="words">Enter your word(s):</label>
         <input type="text" id="words" placeholder="Enter words here">
+        <label for="k-value">Enter k:</label>
+        <input type="number" id="k-value">
         <button id="generate">Generate</button>
         <label for="display-option">Display in table:</label>
-        <input type="checkbox" id="display-option" checked>
-        <label for="combinations-table" id="combination-count"></label></br>
-        <div class="button-container"> <button id="copy-combinations">Copy</button>
-            <button id="clear-combinations">Clear</button>
+        <input type="checkbox" id="display-option" checked></br>
+        <label for="permutations-table" id="permutation-count"></label></br>
+        <div class="button-container"> <button id="copy-permutations">Copy</button>
+            <button id="clear-permutations">Clear</button>
         </div></br>
         <div class="results-container">
-            <table id="combinations-table">
+            <table id="permutations-table">
                 <thead>
                     <tr>
                         <th>Starting Letter</th>
-                        <th>Combinations(Permutations)</th>
+                        <th>Permutations</th>
                     </tr>
                 </thead>
-                <tbody id="combinations-tbody">
+                <tbody id="permutations-tbody">
                 </tbody>
             </table>
-            <div id="combinations-div"></div>
+            <div id="permutations-div"></div>
         </div>
         <br>
         <label for="filename">Filename:</label>
@@ -43,10 +45,10 @@
 </div>
 </br>
     <div id="explanation-div" class="explanation-div">
-        <h2><u>How the Combination(Permutations) Generator Works</u> </h2>
+        <h2><u>How the Permutations Generator Works</u> </h2>
 
         <p>A permutaion is a selection of items from a collection, where the order of the items does matter. For
-            example, selecting 2 items from a set of {A, B, C} could result in the combinations {A, B}, {C, A}, or {B,
+            example, selecting 2 items from a set of {A, B, C} could result in the permutations {A, B}, {C, A}, or {B,
             C},{C,B}.</p>
 
         <h3><u>Permutation Formula</u></h3>
@@ -80,8 +82,8 @@
         <p>Click the "Save" button to save the generated permutations to a text file for future reference.</p>
     </div>
 
-    <script src="script-combinations.js"></script>
-    <script src="script-combinations-actions.js"></script>
+    <script src="script-permutations.js"></script>
+    <script src="script-actions.js"></script>
 </body>
 
 </html>

@@ -1,16 +1,16 @@
-const copyButton = document.getElementById("copy-combinations");
-const clearButton = document.getElementById("clear-combinations");
+const copyButton = document.getElementById("copy-permutations");
+const clearButton = document.getElementById("clear-permutations");
 const saveToTextButton = document.getElementById("save-to-text");
 
-copyButton.addEventListener("click", copyCombinations);
-clearButton.addEventListener("click", clearCombinations);
+copyButton.addEventListener("click", copyPermutations);
+clearButton.addEventListener("click", clearPermutations);
 saveToTextButton.addEventListener("click", () => {
     saveToTextFile();
   });
 
   function saveToTextFile() {
     // Get the results to save (either from table or div)
-    const results = combinationsTable ? combinationsTable.innerText : combinationsDiv.innerText;
+    const results = permutationsTable ? permutationsTable.innerText : permutationsDiv.innerText;
   
     // Create a blob object with a text/plain MIME type
     const blob = new Blob([results], { type: "text/plain" });
@@ -20,13 +20,13 @@ saveToTextButton.addEventListener("click", () => {
     link.href = URL.createObjectURL(blob);
     const filename = document.getElementById("filename").value;
     link.download=filename;
-    //link.download = "combinations.txt";
+    //link.download = "permutations.txt";
     link.click();
   }
 
-function copyCombinations() {
+function copyPermutations() {
   // Get the results to copy (either from table or div)
-  const results = combinationsTable ? combinationsTable.innerText : combinationsDiv.innerText;
+  const results = permutationsTable ? permutationsTable.innerText : permutationsDiv.innerText;
 
   // Create a temporary textarea element to hold the results
   const textarea = document.createElement("textarea");
@@ -42,17 +42,17 @@ function copyCombinations() {
   document.body.removeChild(textarea);
 
   // Show a success message (optional)
-  alert("Combinations copied to clipboard!");
+  alert("permutations copied to clipboard!");
 }
 
-function clearCombinations() {
+function clearPermutations() {
   // Clear the results (either from table or div)
-  if (combinationsTable) {
-    combinationsTable.tBodies[0].innerHTML = "";
+  if (permutationsTable) {
+    permutationsTable.tBodies[0].innerHTML = "";
   } else {
-    combinationsDiv.innerHTML = "";
+    permutationsDiv.innerHTML = "";
   }
 
-  // Update the combination count (optional)
-  combinationCountLabel.textContent = "Number of combinations: 0";
+  // Update the permutation count (optional)
+  permutationCountLabel.textContent = "Number of permutations: 0";
 }

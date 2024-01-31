@@ -1,6 +1,7 @@
 body {
     text-align: center;
     font-family: sans-serif;
+    background-color:azure
   }
   
   .title {
@@ -15,28 +16,31 @@ body {
     background-color: #e0e0e0;
   }
   
-  #combinations-table {
+  #permutations-table {
     width: 100%;
-    border-collapse: collapse;
-  }
-  
-  #combinations-table th {
-    padding: 8px;
-    font-weight: bold;
-    background-color: #ddd;
-  }
-  
-  #combinations-table td {
-    padding: 5px;
     border: 1px solid #ddd;
-  }
-  
-  #combination-count {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-  }
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#permutations-table th {
+    border-bottom: 2px solid #ddd;
+    padding: 10px;
+    text-align: left; /* Align headers to the left */
+    font-weight: bold;
+    background-color: #f5f5f5;
+}
+
+#permutations-table td {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+#permutation-count {
+    font-size: 16px;
+    color: #333; /* Increase visibility with darker color */
+}
+
   
   .panel,.explanation-div{
     border: 1px solid rgb(255, 166, 0);
