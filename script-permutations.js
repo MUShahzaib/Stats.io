@@ -13,10 +13,9 @@ generateButton.addEventListener("click", () => {
 
 // Event listener for the checkbox
 displayOptionCheckbox.addEventListener("change", () => {
-  // Clear previous results
-  permutationsTable.tBodies[0].innerHTML = "";
-  permutationsDiv.innerHTML = "";
-  generateNewPermutations();
+  // Clear previous results it is called from script-actions
+   clearPermutations();
+   generateNewPermutations();
 });
 
 function generateNewPermutations(){
@@ -42,10 +41,10 @@ function generateNewPermutations(){
   permutations = generatePermutations(letters, kValue);
   const permutationCount = permutations.length;
   permutationCountLabel.textContent = `Number of permutations: ${permutationCount}`;
-  displayPermutations();
+  displayPermutations(permutations);
 }
 
-function displayPermutations(){
+function displayPermutations(permutations){
   if (displayOptionCheckbox.checked) {
     displayPermutationsInTable(permutations);
   } else {
@@ -93,9 +92,8 @@ function displayPermutationsInTable(permutations) {
     }
   }
 
-function displayPermutationsInDiv(permutations) {
-  permutationsDiv.innerHTML = "";
-  permutationsDiv.innerHTML = permutations.join("<br>");
+function displayPermutationsInDiv(permutationsToShow) {
+  permutationsDiv.innerHTML = permutationsToShow.join("<br>");
 }
 
 function groupByFirstLetter(permutations) {

@@ -28,7 +28,7 @@ body {
     background-color: #fff;
 }
 
-#permutations-table {
+.results-container {
   font-size: var(--font-size, 16px); /* Use a CSS variable */
 }
 

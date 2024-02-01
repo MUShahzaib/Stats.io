@@ -5,7 +5,9 @@ const sortByDropdown = document.getElementById("sort-by");
 const selectedSortOption = sortByDropdown.value;
 const fontSizeSlider = document.getElementById("font-size");
 let words;
+var sortedPermutations;
 
+///// load the words from url dictionary in the start /////////////////
 loadWords();
 
 copyButton.addEventListener("click", copyPermutations);
@@ -16,8 +18,8 @@ saveToTextButton.addEventListener("click", () => {
 sortByDropdown.addEventListener("change", () => {
   const selectedSortOption = sortByDropdown.value;
   sortPermutations(permutations, selectedSortOption);
-  displayPermutations();
   // Update the displayed permutations
+  displayPermutations(sortedPermutations);
 });
 
 fontSizeSlider.addEventListener("change", () => {
@@ -25,6 +27,12 @@ fontSizeSlider.addEventListener("change", () => {
   document.documentElement.style.setProperty("--font-size", `${newFontSize}px`);
 });
 
+async function loadWords(){
+  // Load the word list at startup
+ words = await fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words.txt')
+.then(response => response.text())
+.then(text => text.split('\n').map(word => word.toLowerCase())); // Convert to lowercase
+}
 
 function saveToTextFile() {
   // Get the results to save (either from table or div)
@@ -65,34 +73,30 @@ function copyPermutations() {
 
 function clearPermutations() {
   // Clear the results (either from table or div)
-  if (permutationsTable) {
     permutationsTable.tBodies[0].innerHTML = "";
-  } else {
     permutationsDiv.innerHTML = "";
-  }
-
   // Update the permutation count (optional)
   permutationCountLabel.textContent = "Number of permutations: 0";
+  sortByDropdown.value="None";
 }
-
 
 // Function to sort permutations based on different criteria
 function sortPermutations(permutations, sortOption) {
   switch (sortOption) {
     case "firstLetterAsc":
-      permutations.sort((a, b) => a[0].localeCompare(b[0]));
+      sortedPermutations=permutations.sort((a, b) => a[0].localeCompare(b[0]));
       break;
     case "firstLetterDesc":
-      permutations.sort((a, b) => b[0].localeCompare(a[0]));
+      sortedPermutations=permutations.sort((a, b) => b[0].localeCompare(a[0]));
       break;
     case "wordLengthAsc":
-      permutations.sort((a, b) => a.length - b.length);
+      sortedPermutations=permutations.sort((a, b) => a.length - b.length);
       break;
     case "wordLengthDesc":
-      permutations.sort((a, b) => b.length - a.length);
+      sortedPermutations=permutations.sort((a, b) => b.length - a.length);
       break;
     case "alphabeticalFull":
-      permutations.sort((a, b) => a.localeCompare(b));
+      sortedPermutations=permutations.sort((a, b) => a.localeCompare(b));
       break;
     case "meaningFul":
       sortMeaningful();
@@ -102,46 +106,18 @@ function sortPermutations(permutations, sortOption) {
   }
 }
 
-
 function sortMeaningful() {
   console.log(permutations.length);
   const meaningfulPermutations = permutations.filter(word => wordExists(word));
-  // Display meaningful permutations
-  displayPermutationsInDiv(meaningfulPermutations);
-}
-
-async function loadWords(){
-  // Load the word list at startup
- words = await fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words.txt')
-.then(response => response.text())
-.then(text => text.split('\n').map(word => word.toLowerCase())); // Convert to lowercase
+  sortedPermutations=meaningfulPermutations;
 }
 
 // Function to check if a word exists
  function wordExists(word) {
-  console.log("wordsLength"+words.length+words[26]);
-  console.log(word);
   if(words.includes(word.toLowerCase()) || words.includes(word.toLowerCase()+"s") ) // Consider case-insensitive search)
   {
+     //console.log(word);
        return word;
   }
-  else if(words.includes(word.toUpperCase()) || words.includes(word.toLowerCase()+"S")){
-    return word;
-  }
-
   return "";
 }
-
-// Usage in your code
-// const userWord = "meaningful";
-// if (wordExists(userWord)) {
-//   console.log("Word found!");
-// } else {
-//   console.log("Word not found.");
-// }
-
-
-
-
-
-
