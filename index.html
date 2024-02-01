@@ -9,32 +9,45 @@
 <body>
     <h1 class="title">Permutations Generator</h1>
     <div class="panel">
-        <label for="words" >Enter your word(s):</label>
-        <input class="input-ui" type="text" id="words" placeholder="Enter words here">
-        <label for="k-value" >Enter k-value:</label>
-        <input class="input-ui" type="number" id="k-value" min="1">
-        <button class="input-ui" id="generate">Generate</button>
-        <label for="display-option">Display in table:</label>
-        <input type="checkbox" id="display-option" checked></br></br>
-        <label for="permutations-table" id="permutation-count"></label></br></br>
-        <div class="button-container"> <button id="copy-permutations">Copy</button>
-            <button id="clear-permutations">Clear</button>
-        </div></br>
-        <div id="sort-panel">
-        <label for="sort-by">Sort By:</label>
-        <select id="sort-by" class="input-ui">
-            <option value="none">None</option>
-            <option value="meaningFul">MeaningFull (Full Word)</option>
-            <option value="firstLetterAsc">First Letter (Ascending)</option>
-            <option value="firstLetterDesc">First Letter (Descending)</option>
-            <option value="wordLengthAsc">Word Length (Shortest to Longest)</option>
-            <option value="wordLengthDesc">Word Length (Longest to Shortest)</option>
-            <option value="alphabeticalFull">Alphabetical (Full Word)</option>
-          </select>
+        <label for="words">Enter your word(s):</label> </br>
+        <textarea class="input-ui" id="words-input" rows="4" cols="50" placeholder="Enter words here" ></textarea>
+    <!-- this row contains the k-value label and input, check box to display in table or not and copy and clear buttons -->
+        <div class="row">
+            <div class="inner-row">
+            <label for="k-value" >Enter k-value:</label>
+            <input class="input-ui" type="number" id="k-value" min="1" style="margin-right: 10px;">    
+            </div>
+            <div class="inner-row">      
+            <label for="display-option" ">Display in table:</label>
+            <input type="checkbox" id="display-option" checked class="input-ui" style="height: 35px;">
+            </div>  
         </div>
-        </br> </br>
-        <label for="font-size">Font Size:</label>
-        <input type="range" id="font-size" min="12" max="32" value="16">        
+
+        <button class="input-ui" id="generate">Generate</button> </br></br>
+<!-- this row contains sort by drop down with options , and font size slider -->
+        <div class="row">
+            <div class="inner-row">
+            <label for="sort-by" style="margin-left: 10px;">Sort By:</label>
+            <select id="sort-by" class="input-ui" style="margin-left: 10px;">
+                <option value="none">None</option>
+                <option value="meaningFul">MeaningFull (Full Word)</option>
+                <option value="firstLetterAsc">First Letter (Ascending)</option>
+                <option value="firstLetterDesc">First Letter (Descending)</option>
+                <!-- <option value="wordLengthAsc">Word Length (Shortest to Longest)</option>  // we don't need these options currently
+                <option value="wordLengthDesc">Word Length (Longest to Shortest)</option> -->
+                <option value="alphabeticalFull">Alphabetical (Full Word)</option>
+            </select>
+        </div>
+        <button id="copy-permutations" class="actions-ui">Copy</button>
+        <button id="clear-permutations" class="actions-ui">Clear</button>
+        <div class="inner-row">
+            <label for="font-size" style="margin-left: 10px;">Font Size:</label>
+            <input type="range" id="font-size" min="12" max="32" value="16" style="margin-left: 10px;">
+            </div>
+        </div>
+
+        <label for="permutations-table" id="permutation-count" style="color: crimson;"></label> </br></br>
+
         <div class="results-container">
             <table id="permutations-table">
                 <thead>
@@ -49,16 +62,20 @@
             <div id="permutations-div"></div>
         </div>
         <br>
+        <!-- saving file with all permutations data -->
         <label for="filename">Filename:</label>
         <input type="text" id="filename" value="permutations.txt">
         <button id="save-to-text">Save to Text File</button>
     </div>
-</br>
-<div class="ad-banner"> 
-    <h1> Place your ads here ! </h1>
-       This area is available for adding advertisements. Contact mshahzaib6699@gmail.com for more information about placing your ads here. 
-</div>
-</br>
+    </br>
+    <!-- this div holds the info about ads -->
+    <div class="ad-banner">
+        <h1> Place your ads here ! </h1>
+        This area is available for adding advertisements. Contact mshahzaib6699@gmail.com for more information about
+        placing your ads here.
+    </div>
+    </br>
+    <!-- this div contains the info about project i.e what is permuation,its formula, algorithm info, and how this site works-->
     <div id="explanation-div" class="explanation-div">
         <h2><u>How the Permutations Generator Works</u> </h2>
 
@@ -84,7 +101,8 @@
         <p>Enter the total number of items (n) and the number of items to choose (k) in the input fields.</p>
 
         <h4>2. Output</h4>
-        <p>The generated permutations are displayed in a table view for easy reading and analysis as well as in simple text to easily copy.</p>
+        <p>The generated permutations are displayed in a table view for easy reading and analysis as well as in simple
+            text to easily copy.</p>
 
         <h4>3. Copy</h4>
         <p>Click the "Copy" button to copy all generated permutations to your clipboard for pasting into other
@@ -96,6 +114,9 @@
         <h4>5. Save</h4>
         <p>Click the "Save" button to save the generated permutations to a text file for future reference.</p>
     </div>
+
+</br>
+    <iframe src="dev-info.html" style=" width:  100%; background-color: antiquewhite;;"></iframe>
 
     <script src="script-permutations.js"></script>
     <script src="script-actions.js"></script>

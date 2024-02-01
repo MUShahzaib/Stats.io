@@ -1,4 +1,4 @@
-const wordsInput = document.getElementById("words");
+const wordsInput = document.getElementById("words-input");
 const generateButton = document.getElementById("generate");
 const permutationsTable = document.getElementById("permutations-table");
 const permutationsDiv = document.getElementById("permutations-div");
@@ -107,6 +107,3 @@ function groupByFirstLetter(permutations) {
   }
   return groups;
 }
-
-
-
