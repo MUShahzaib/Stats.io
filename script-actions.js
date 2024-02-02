@@ -5,6 +5,7 @@ const sortByDropdown = document.getElementById("sort-by");
 const selectedSortOption = sortByDropdown.value;
 const fontSizeSlider = document.getElementById("font-size");
 let words;
+var wordsSet; // using words set for faster searching/sorting
 var sortedPermutations;
 
 ///// load the words from url dictionary in the start /////////////////
@@ -32,6 +33,7 @@ async function loadWords(){
  words = await fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words.txt')
 .then(response => response.text())
 .then(text => text.split('\n').map(word => word.toLowerCase())); // Convert to lowercase
+wordsSet=new Set(words);  // assign words to word set for faster searching later
 }
 
 function saveToTextFile() {
@@ -114,7 +116,8 @@ function sortMeaningful() {
 
 // Function to check if a word exists
  function wordExists(word) {
-  if(words.includes(word.toLowerCase()) || words.includes(word.toLowerCase()+"s") ) // Consider case-insensitive search)
+  //if(words.includes(word.toLowerCase()) || words.includes(word.toLowerCase()+"s") ) // Consider case-insensitive search)
+  if(wordsSet.has(word.toLowerCase()) || wordsSet.has(word.toLowerCase()+"s"))
   {
      //console.log(word);
        return word;
