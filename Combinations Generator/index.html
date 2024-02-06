@@ -5,12 +5,12 @@
     <meta http-equiv='cache-control' content='no-cache'> 
     <meta http-equiv='expires' content='0'> 
     <meta http-equiv='pragma' content='no-cache'>
-    <title>Permutations Generator</title>
+    <title>Combinations Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1 class="title">Permutations Generator</h1>
+    <h1 class="title">Combinations Generator</h1>
     <div class="panel">
         <label for="words">Enter your word(s):</label> </br>
         <textarea class="input-ui" id="words-input" rows="4" cols="50" placeholder="Enter words here" ></textarea>
@@ -41,33 +41,33 @@
                 <option value="alphabeticalFull">Alphabetical (Full Word)</option>
             </select>
         </div>
-        <button id="copy-permutations" class="actions-ui">Copy</button>
-        <button id="clear-permutations" class="actions-ui">Clear</button>
+        <button id="copy-combinations" class="actions-ui">Copy</button>
+        <button id="clear-combinations" class="actions-ui">Clear</button>
         <div class="inner-row">
             <label for="font-size" style="margin-left: 10px;">Font Size:</label>
             <input type="range" id="font-size" min="12" max="32" value="16" style="margin-left: 10px;">
             </div>
         </div>
 
-        <label for="permutations-table" id="permutation-count" style="color: crimson;"></label> </br></br>
+        <label for="combinations-table" id="combination-count" style="color: crimson;"></label> </br></br>
 
         <div class="results-container">
-            <table id="permutations-table">
+            <table id="combinations-table">
                 <thead>
                     <tr>
                         <th>Starting Letter</th>
-                        <th>Permutations</th>
+                        <th>combinations</th>
                     </tr>
                 </thead>
-                <tbody id="permutations-tbody">
+                <tbody id="combinations-tbody">
                 </tbody>
             </table>
-            <div id="permutations-div"></div>
+            <div id="combinations-div"></div>
         </div>
         <br>
-        <!-- saving file with all permutations data -->
+        <!-- saving file with all combinations data -->
         <label for="filename">Filename:</label>
-        <input type="text" id="filename" value="permutations.txt">
+        <input type="text" id="filename" value="combinations.txt">
         <button id="save-to-text">Save to Text File</button>
     </div>
     </br>
@@ -81,23 +81,23 @@
     </br>
     <!-- this div contains the info about project i.e what is permuation,its formula, algorithm info, and how this site works-->
     <div id="explanation-div" class="explanation-div">
-        <h2><u>How the Permutations Generator Works</u> </h2>
+        <h2><u>How the combinations Generator Works</u> </h2>
 
-        <p>A permutaion is a selection of items from a collection, where the order of the items does matter. For
-            example, selecting 2 items from a set of {A, B, C} could result in the permutations {A, B}, {A, C}, or {B,
-            C},{B,C},{C,A} and {C,B}.</p>
+        <p>A combination is a selection of items from a collection, where the order of the items does not matter. For
+            example, selecting 2 items from a set of {A, B, C} could result in the combinations {A, B}, {C, A}, and {B,
+            C}.</p>
 
-        <h3><u>Permutation Formula</u></h3>
+        <h3><u>combination Formula</u></h3>
 
-        <p>The number of possible permutations of <i>k</i> items from a set of <i>n</i> items is given by the formula:
+        <p>The number of possible combinations of <i>k</i> items from a set of <i>n</i> items is given by the formula:
         </p>
-        <p><strong>n! / (n-k)!</strong></p>
+        <p><strong>n! /(k! * (n-k)! )</strong></p>
         <p>where "!" denotes the factorial (e.g., 5! = 5 x 4 x 3 x 2 x 1).</p>
 
         <h3><u> Algorithm Implementation</u> </h3>
 
-        <p>Our site uses an efficient algorithm to generate permutations based on this formula. It recursively explores
-            possible permutations,<strong> not ensuring</strong> that each unique permutations is generated only once.</p>
+        <p>Our site uses an efficient algorithm to generate combinations based on this formula. It recursively explores
+            possible combinations, <strong> ensuring</strong> that each unique combinations is generated only once.</p>
 
         <h3><u> Site Functionality</u> </h3>
 
@@ -105,24 +105,24 @@
         <p>Enter the total number of items (n) and the number of items to choose (k) in the input fields.</p>
 
         <h4>2. Output</h4>
-        <p>The generated permutations are displayed in a table view for easy reading and analysis as well as in simple
+        <p>The generated combinations are displayed in a table view for easy reading and analysis as well as in simple
             text to easily copy.</p>
 
         <h4>3. Copy</h4>
-        <p>Click the "Copy" button to copy all generated permutations to your clipboard for pasting into other
+        <p>Click the "Copy" button to copy all generated combinations to your clipboard for pasting into other
             applications.</p>
 
         <h4>4. Clear</h4>
-        <p>Click the "Clear" button to erase all generated permutations and start a new calculation.</p>
+        <p>Click the "Clear" button to erase all generated combinations and start a new calculation.</p>
 
         <h4>5. Save</h4>
-        <p>Click the "Save" button to save the generated permutations to a text file for future reference.</p>
+        <p>Click the "Save" button to save the generated combinations to a text file for future reference.</p>
     </div>
 
 </br>
     <iframe src="dev-info.html" style=" width:  100%; background-color: antiquewhite;;"></iframe>
 
-    <script src="script-permutations.js"></script>
+    <script src="script-combinations.js"></script>
     <script src="script-actions.js"></script>
 </body>
 
