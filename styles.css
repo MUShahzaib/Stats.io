@@ -5,11 +5,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color:antiquewhite; /* Light gray background */
+    /* background-color: #D0E5F5; Light blue background */
+    /* background-image: linear-gradient(to right,#D0E5F5, #f9ffb8); */
+    background-image: linear-gradient(to right,#c3e4fd, #ffffff); 
   }
   
   header {
-    background-color: #3498db; /* Blue header */
+    /* background-color: #3498db; Blue header */
+    background-image: linear-gradient(to right,#87cbff, #3daafe);
     color: #fff;
     padding: 30px;
     text-align: center;
