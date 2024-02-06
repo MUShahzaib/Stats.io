@@ -39,9 +39,8 @@ function generateNewPermutations(){
     }
   }
   permutations = generatePermutations(letters, kValue);
-  const permutationCount = permutations.length;
-  permutationCountLabel.textContent = `Number of permutations: ${permutationCount}`;
   displayPermutations(permutations);
+  sortByDropdown.selectedIndex=0;
 }
 
 function displayPermutations(permutations){
@@ -50,6 +49,9 @@ function displayPermutations(permutations){
   } else {
     displayPermutationsInDiv(permutations);
   }
+
+  const permutationCount = permutations.length;
+  permutationCountLabel.textContent = `Number of permutations: ${permutationCount}`;
 }
 
 function generatePermutations(letters, k) {
