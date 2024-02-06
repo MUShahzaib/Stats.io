@@ -5,7 +5,7 @@ const combinationsDiv = document.getElementById("combinations-div");
 const combinationCountLabel = document.getElementById("combination-count");
 const displayOptionCheckbox = document.getElementById("display-option");
 const kInput= document.getElementById("k-value");
-var combination;
+var combinations;
 
 generateButton.addEventListener("click", () => {
   generateNewCombination();
@@ -38,19 +38,19 @@ function generateNewCombination(){
       return; // Prevent further code execution if k is invalid
     }
   }
-  combination = generateCombination(letters, kValue);
-  displayCombination(combination);
+  combinations = generateCombination(letters, kValue);
+  displayCombinations(combinations);
   sortByDropdown.selectedIndex=0;
 }
 
-function displayCombination(combination){
+function displayCombinations(combinations){
   if (displayOptionCheckbox.checked) {
-    displayCombinationInTable(combination);
+    displayCombinationInTable(combinations);
   } else {
-    displayCombinationInDiv(combination);
+    displayCombinationInDiv(combinations);
   }
 
-  const combinationCount = combination.length;
+  const combinationCount = combinations.length;
   combinationCountLabel.textContent = `Number of combination: ${combinationCount}`;
 }
 
@@ -99,14 +99,14 @@ function displayCombinationInDiv(combinationToShow) {
   combinationsDiv.innerHTML = combinationToShow.join("<br>");
 }
 
-function groupByFirstLetter(combination) {
+function groupByFirstLetter(combinations) {
   const groups = {};
-  for (const permutation of combination) {
-    const firstLetter = permutation[0];
+  for (const combination of combinations) {
+    const firstLetter = combinations[0];
     if (!groups[firstLetter]) {
       groups[firstLetter] = [];
     }
-    groups[firstLetter].push(permutation);
+    groups[firstLetter].push(combination);
   }
   return groups;
 }

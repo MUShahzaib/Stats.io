@@ -20,7 +20,7 @@ sortByDropdown.addEventListener("change", () => {
   const selectedSortOption = sortByDropdown.value;
   sortCombinations(combinations, selectedSortOption);
   // Update the displayed combinations
-  displayCombinations(sortedcombinations);
+  displayCombinations(sortedCombinations);
 });
 
 fontSizeSlider.addEventListener("change", () => {

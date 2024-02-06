@@ -1,129 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
-    <title>Permutations Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats Made Easy</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1 class="title">Permutations Generator</h1>
-    <div class="panel">
-        <label for="words">Enter your word(s):</label> </br>
-        <textarea class="input-ui" id="words-input" rows="4" cols="50" placeholder="Enter words here" ></textarea>
-    <!-- this row contains the k-value label and input, check box to display in table or not and copy and clear buttons -->
-        <div class="row">
-            <div class="inner-row">
-            <label for="k-value" >Enter k-value:</label>
-            <input class="input-ui" type="number" id="k-value" min="1" style="margin-right: 10px;">    
+    <header>
+        <h1>Conquer Statistics with Ease!</h1>
+        <p>Ditch the textbooks, unlock insights instantly with interactive demos &amp; clear explanations.</p>
+    </header>
+    </br>
+    <main>
+        <div class="button-container">
+            <a class="button" href="Permutations Generator/permutations-generator.html" target="_blank">
+                Open Permutation Generator</a>
+            <a class="button" href="Combinations Generator/combinations-generator.html" target="_blank">
+                Open Combination Generator<a>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <h3>Interactive Demos</h3>
+                <p>Learn by doing! Explore various techniques &amp; see concepts come alive.</p>
             </div>
-            <div class="inner-row">      
-            <label for="display-option" ">Display in table:</label>
-            <input type="checkbox" id="display-option" checked class="input-ui" style="height: 35px;">
-            </div>  
-        </div>
-
-        <button class="input-ui" id="generate">Generate</button> </br></br>
-<!-- this row contains sort by drop down with options , and font size slider -->
-        <div class="row">
-            <div class="inner-row">
-            <label for="sort-by" style="margin-left: 10px;">Sort By:</label>
-            <select id="sort-by" class="input-ui" style="margin-left: 10px;">
-                <option value="none">None</option>
-                <option value="meaningFul">MeaningFull (Full Word)</option>
-                <option value="firstLetterAsc">First Letter (Ascending)</option>
-                <option value="firstLetterDesc">First Letter (Descending)</option>
-                <!-- <option value="wordLengthAsc">Word Length (Shortest to Longest)</option>  // we don't need these options currently
-                <option value="wordLengthDesc">Word Length (Longest to Shortest)</option> -->
-                <option value="alphabeticalFull">Alphabetical (Full Word)</option>
-            </select>
-        </div>
-        <button id="copy-permutations" class="actions-ui">Copy</button>
-        <button id="clear-permutations" class="actions-ui">Clear</button>
-        <div class="inner-row">
-            <label for="font-size" style="margin-left: 10px;">Font Size:</label>
-            <input type="range" id="font-size" min="12" max="32" value="16" style="margin-left: 10px;">
+            <div class="feature">
+                <h3>Plain-Language Explanations</h3>
+                <p>No jargon here! We break down complex concepts into easy-to-understand pieces.</p>
+            </div>
+            <div class="feature">
+                <h3>Intuitive Tools</h3>
+                <p>Analyze your own data without coding struggles. Simply input &amp; choose the right tool.</p>
+            </div>
+            <div class="feature">
+                <h3>Wide Range of Topics</h3>
+                <p>From basics to advanced analysis, find the statistical knowledge you need.</p>
             </div>
         </div>
-
-        <label for="permutations-table" id="permutation-count" style="color: crimson;"></label> </br></br>
-
-        <div class="results-container">
-            <table id="permutations-table">
-                <thead>
-                    <tr>
-                        <th>Starting Letter</th>
-                        <th>Permutations</th>
-                    </tr>
-                </thead>
-                <tbody id="permutations-tbody">
-                </tbody>
-            </table>
-            <div id="permutations-div"></div>
+        <div class="benefits">
+            <h2>Benefits:</h2>
+            <ul>
+                <li>Save time &amp; resources - focus on interpretations &amp; conclusions.</li>
+                <li>Boost your confidence - work with data &amp; make data-driven decisions.</li>
+                <li>Greater understanding - unlock the power of statistics to understand the world.</li>
+            </ul>
         </div>
-        <br>
-        <!-- saving file with all permutations data -->
-        <label for="filename">Filename:</label>
-        <input type="text" id="filename" value="permutations.txt">
-        <button id="save-to-text">Save to Text File</button>
-    </div>
-    </br>
-    <!-- this div holds the info about ads -->
-    <div class="ad-banner">
-        <!-- <a href="https://www.toprevenuegate.com/ycw20k2bwn?key=086f24e084f55d07c83e95301e646042" target="_blank">click to support developer by viewing ad</a> -->
-        <h1> Place your ads here ! </h1>
-        This area is available for adding advertisements. Contact mshahzaib6699@gmail.com for more information about
-        placing your ads here.
-    </div>
-    </br>
-    <!-- this div contains the info about project i.e what is permuation,its formula, algorithm info, and how this site works-->
-    <div id="explanation-div" class="explanation-div">
-        <h2><u>How the Permutations Generator Works</u> </h2>
-
-        <p>A permutaion is a selection of items from a collection, where the order of the items does matter. For
-            example, selecting 2 items from a set of {A, B, C} could result in the permutations {A, B}, {A, C}, or {B,
-            C},{B,C},{C,A} and {C,B}.</p>
-
-        <h3><u>Permutation Formula</u></h3>
-
-        <p>The number of possible permutations of <i>k</i> items from a set of <i>n</i> items is given by the formula:
-        </p>
-        <p><strong>n! / (n-k)!</strong></p>
-        <p>where "!" denotes the factorial (e.g., 5! = 5 x 4 x 3 x 2 x 1).</p>
-
-        <h3><u> Algorithm Implementation</u> </h3>
-
-        <p>Our site uses an efficient algorithm to generate permutations based on this formula. It recursively explores
-            possible permutations,<strong> not ensuring</strong> that each unique permutations is generated only once.</p>
-
-        <h3><u> Site Functionality</u> </h3>
-
-        <h4>1. Input</h4>
-        <p>Enter the total number of items (n) and the number of items to choose (k) in the input fields.</p>
-
-        <h4>2. Output</h4>
-        <p>The generated permutations are displayed in a table view for easy reading and analysis as well as in simple
-            text to easily copy.</p>
-
-        <h4>3. Copy</h4>
-        <p>Click the "Copy" button to copy all generated permutations to your clipboard for pasting into other
-            applications.</p>
-
-        <h4>4. Clear</h4>
-        <p>Click the "Clear" button to erase all generated permutations and start a new calculation.</p>
-
-        <h4>5. Save</h4>
-        <p>Click the "Save" button to save the generated permutations to a text file for future reference.</p>
-    </div>
-
-</br>
-    <iframe src="dev-info.html" style=" width:  100%; background-color: antiquewhite;;"></iframe>
-
-    <script src="script-permutations.js"></script>
-    <script src="script-actions.js"></script>
+        <div class="call-to-action">
+            <a href="#">Explore Demos &amp; Learn Effortlessly!</a>
+        </div>
+        <p class="disclaimer">Disclaimer: We cannot provide professional statistical advice. For specific needs,
+            consult a qualified statistician.</p>
+    </main>
 </body>
 
 </html>
